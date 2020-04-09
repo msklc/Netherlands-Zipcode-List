@@ -65,5 +65,6 @@ print('Scraping finished at {}'.format(datetime.datetime.now().strftime("%d-%m-%
 
 #Save The result to pandas-dataframe and save
 NL_zipcode=pd.DataFrame({'Zipcode':zipcode_list, 'Place':place_list, 'Gemeente':gemeente_list, 'Province':province_list, 'Latitude':lat_list, 'Longitude':lon_list})
+NL_zipcode[NL_zipcode['Zipcode'].str.len()==6] #Filtering the zipcodes
 NL_zipcode.to_csv('NL_zipcode.csv')
 print('Totally {} row data is scraped and saved'.format(NL_zipcode.shape[0]))
